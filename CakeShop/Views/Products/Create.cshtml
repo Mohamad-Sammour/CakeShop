@@ -1,0 +1,84 @@
+﻿
+
+
+
+@model CakeShop.Model.Product
+
+<link href="~/assest for create/css/StyleSheet.css" rel="stylesheet" />
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Admin";
+
+}
+
+
+<p>@ViewBag.sessionName</p>
+
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+
+
+<div class="container">
+    <div style="text-align:center">
+        <h2 style="color:orange">Add New Product</h2>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="~/assest3/img/offer.jpg" style="width:100%">
+        </div>
+        <div class="column" style="color:orange">
+            <form asp-action="Create" enctype="multipart/form-data">
+                @*<label for="fname">First Name</label>*@
+                <div @*class="form-group"*@>
+                    <label asp-for="ProductName" class="control-label"></label>
+                    <input asp-for="ProductName" class="form-control" />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+
+                <div @*class="form-group"*@>
+                    <label asp-for="ImageFile" class="control-label"></label>
+                    <input asp-for="ImageFile" class="form-control" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+
+                <div class=@*"form-group"*@>
+                    <label asp-for="Price" class="control-label"></label>
+                    <input asp-for="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class=@*"form-group"*@>
+                    <label asp-for="Quantity" class="control-label"></label>
+                    <input asp-for="Quantity" class="form-control" />
+                    <span asp-validation-for="Quantity" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+                </div>
+
+                <br />
+                <br />
+
+
+                <div class="form-group" style="color:black">
+                    <p style="text-align:left">
+                        <input type="submit" value="Add +" style="background-color:orange" />
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <p style="text-align:left">
+                        <button style="background-color:orange" > <a asp-action="Index" style="color:white" class="fas fa-fw fa-reply-all">Back To list</a></button>
+                    </p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

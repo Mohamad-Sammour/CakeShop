@@ -1,0 +1,71 @@
+﻿
+@model IEnumerable<CakeShop.Model.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Admin";
+}
+
+
+@*<div class="container-fluid about p-5" style="background-color:black">*@
+<div class="container">
+    <div class="form-group">
+        <br />
+        <br />
+
+        <p style="text-align:center">
+            <button style="background-color:black"> <a asp-action="Create" style="color:orange">Add New Employee + </a></button>
+        </p>
+        <br />
+        <br />
+
+        <div class="container">
+            <div class="row">
+
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-md-4">
+                        <img class="card-img-top" src="@Url.Content("~/Images/" + item.Image)" alt="Employee img">
+                        <div class="card-body">
+                            <div class="category__label">
+                                <span>@Html.DisplayFor(modelItem => item.Fullname)</span>
+                            </div>
+                            <div class="category__label">
+                                <span>@Html.DisplayFor(modelItem => item.Email)</span>
+                            </div>
+                            <div class="category__label">
+                                <span>@Html.DisplayFor(modelItem => item.Password)</span>
+                            </div>
+                            <div class="category__label">
+                                <span>@Html.DisplayFor(modelItem => item.PhoneNumber)</span>
+                            </div>
+                            <div class="category__label">
+                                <span>@Html.DisplayFor(modelItem => item.HairedDate)</span>
+                            </div>
+                            <div class="category__label">
+                                <span>@Html.DisplayFor(modelItem => item.Image)</span>
+                            </div>
+                            <div class="category__label">
+                                <span>@Html.DisplayFor(modelItem => item.Roleid)</span>
+                            </div>
+
+
+
+                            <p>
+                                <a asp-action="Edit" asp-route-id="@item.EmployeeId" class="btn btn-success"><i class="far fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.EmployeeId" class="btn btn-info"><i class="fas fa-th-list"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.EmployeeId" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                            </p>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

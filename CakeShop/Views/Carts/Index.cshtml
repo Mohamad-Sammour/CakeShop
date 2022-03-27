@@ -1,0 +1,45 @@
+﻿@model Tuple< List<CakeShop.Model.Order>,
+    List<CakeShop.Model.Cart>>
+
+@{
+    Layout = "_Layout";
+}
+ 
+
+<br />
+<br />
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Item1)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.CustomerName)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.CartId">Edit</a> |*@
+                    @*<a asp-action="Details" asp-route-id="@item.CartId">Details</a> |*@
+                    <a asp-action="Delete" asp-route-id="@item.CartId">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                <button asp-controller="Orders" asp-action="Index" type="submit" class="btn btn-dark">Confirm</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

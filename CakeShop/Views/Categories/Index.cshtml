@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CakeShop.Model.Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Admin";
+}
+
+<br />
+<br />
+
+<p>@ViewBag.sessionName</p>
+
+
+<div class="container-fluid about py-5" style="background-color:black">
+    <div class="container">
+        <div class="form-group">
+            <p style="text-align:center">
+                <button style="background-color:black"> <a asp-action="Create" style="color:orange">Add New Category + </a></button>
+            </p>
+            <br />
+            <br />
+
+            <div class="container">
+                <div class="row">
+
+
+                    @foreach (var item in Model)
+                    {
+
+                        <div class="col-md-4">
+                            <img class="card-img-top" src="@Url.Content("~/Images/" + item.CategoryImage)" alt="category img">
+                            <div class="card-body">
+                                <div class="category__label">
+                                    @Html.DisplayFor(modelItem => item.CategoryName)
+                                </div>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.CategoryDescription)</p>
+                                <p>
+                                    <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-success"><i class="far fa-edit"></i></a>
+                                    <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-info"><i class="fas fa-th-list"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                                </p>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

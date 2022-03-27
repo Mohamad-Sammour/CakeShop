@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CakeShop.Model.Product>
+
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Admin";
+}
+
+<br />
+<br />
+
+<p>@ViewBag.sessionName</p>
+
+<div class="container">
+    <div class="form-group">
+        <p class="text-left">
+            <a class="btn btn-dark" asp-action="Create" style="color:orange"><i class="fa fa-plus"></i> Add New Product  </a>
+        </p>
+        <br />
+        <br />
+
+        <div class="container ">
+            <div class="row p-2">
+
+
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-3">
+                        <img class="card-img-top" src="@Url.Content("~/Images/" + item.ProductImage)" alt="category img">
+                        <div class="card-body">
+                            <div class="category__label">
+                                <span>@Html.DisplayFor(modelItem => item.ProductName)</span>
+                            </div>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+                            <p>
+                                <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-success"><i class="far fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-info"><i class="fas fa-th-list"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                            </p>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+﻿@model CakeShop.Model.Employee
+    <link href="~/assest for create/css/StyleSheet.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Admin";
+}
+
+
+<h4>Register Employee</h4>
+
+
+<div class="container">
+    <div style="text-align:center">
+        <h2 style="color:orange">Add New Employee</h2>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="~/assest3/img/offer.jpg" style="width:100%">
+        </div>
+        <div class="column" style="color:orange">
+            <form asp-action="Create" enctype="multipart/form-data">
+                @*<label for="fname">First Name</label>*@
+                <div @*class="form-group"*@>
+                    <label asp-for="Fullname" class="control-label"></label>
+                    <input asp-for="Fullname" class="form-control" />
+                    <span asp-validation-for="Fullname" class="text-danger"></span>
+                </div>
+
+                <div @*class="form-group"*@>
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="Password" class="control-label"></label>
+                    <input for="Password" name="password" class="form-control" placeholder="Pasword" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HairedDate" class="control-label"></label>
+                    <input asp-for="HairedDate" class="form-control" />
+                    <span asp-validation-for="HairedDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Salary" class="control-label"></label>
+                    <input asp-for="Salary" class="form-control" />
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageFile" class="control-label"></label>
+                    <input asp-for="ImageFile" class="form-control" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+                    <label asp-for="Roleid" class="control-label"></label>
+                    <input asp-for="Roleid" class="form-control" />
+                    <span asp-validation-for="Roleid" class="text-danger"></span>
+                </div>*@
+                <div class="form-group" style="color:black">
+                    <p style="text-align:left">
+                        <input type="submit" value="Add +" style="background-color:orange" />
+                    </p>
+                </div>
+
+
+
+                <div class="form-group">
+                    <p style="text-align:left">
+                        <button style="background-color:orange"> <a asp-action="Index" style="color:white" class="fas fa-fw fa-reply-all">Back To list</a></button>
+                    </p>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

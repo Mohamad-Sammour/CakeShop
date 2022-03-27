@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CakeShop.Model.Home>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slider)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aboutus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contactus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aboutus.AboutusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contactus.ContatcusId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HomeId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HomeId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HomeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

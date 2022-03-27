@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CakeShop.Model.Category>
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+}
+
+
+<br />
+<br />
+
+<div class="container">
+    <div class="row">
+
+
+
+        <br />
+        <br />
+        <br />
+
+        <div>
+            <form asp-action="Search" asp-controller="Products">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="text" name="search" id="search" placeholder="Search" />
+                        <label class="form-label" for="form1">Search</label>
+                    </div>
+                    <button id="search-button" type="button" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+       
+
+
+        @foreach (var item in Model)
+        {
+
+
+
+            <div class="col-md-4">
+                <div>
+                    @Html.ActionLink(@item.CategoryName, "ListProduct", "Products", new { id = item.CategoryId })
+                </div>
+
+                <div class="card-body">
+                    <div class="category__label">
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </div>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.CategoryDescription)</p>
+
+                    <img class="card-img-top" src="@Url.Content("~/Images/" + item.CategoryImage)" alt="category img">
+                    <br />
+                    <p>
+                        <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-info"><i class="fas fa-th-list"></i></a>
+                    </p>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+

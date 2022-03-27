@@ -1,0 +1,66 @@
+﻿@model CakeShop.Model.Report
+
+    <link href="~/assest for create/css/StyleSheet.css" rel="stylesheet" />
+
+    @{
+        Layout = "_Admin";
+    }
+
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Create</title>
+    </head>
+    <body>
+
+        <h4>Report</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="ReportType" class="control-label"></label>
+                        <input asp-for="ReportType" class="form-control" />
+                        <span asp-validation-for="ReportType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateOut" class="control-label"></label>
+                        <input asp-for="DateOut" class="form-control" />
+                        <span asp-validation-for="DateOut" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SalaryProfits" class="control-label"></label>
+                        <input asp-for="SalaryProfits" class="form-control" />
+                        <span asp-validation-for="SalaryProfits" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SalaryLosses" class="control-label"></label>
+                        <input asp-for="SalaryLosses" class="form-control" />
+                        <span asp-validation-for="SalaryLosses" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmployeeId" class="control-label"></label>
+                        <select asp-for="EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+
+     
+    </body>
+</html>
+
+
+
+

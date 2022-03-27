@@ -1,0 +1,48 @@
+﻿@model CakeShop.Model.Aboutu
+
+    <link href="~/assest for create/css/StyleSheet.css" rel="stylesheet" />
+
+    @{
+        Layout = "_Admin";
+    }
+
+
+
+
+    <h4>Aboutus</h4>
+    <br />
+    <br />
+
+
+    <div class="container">
+        <div style="text-align:center">
+            <h2 style="background-color:black; color:orange">Add Information</h2>
+        </div>
+        <div class="row">
+
+            <div class="column" style="background-color:black;color:orange">
+                <form asp-action="Create" enctype="multipart/form-data">
+                    @*<label for="fname">First Name</label>*@
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group; col-lg-12">
+                        <label asp-for="Message" class="control-label"></label>
+                        <input asp-for="Message" class="form-control" />
+                        <span asp-validation-for="Message" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="color:black">
+                        <p style="text-align:left">
+                            <input type="submit" value="Add +" style="background-color:orange" />
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <p style="text-align:left">
+                            <button style="background-color:orange"> <a asp-action="Index" style="color:white" class="fas fa-fw fa-reply-all">Back To list</a></button>
+                        </p>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>

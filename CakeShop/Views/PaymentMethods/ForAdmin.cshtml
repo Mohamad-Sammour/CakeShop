@@ -1,0 +1,114 @@
+﻿@model IEnumerable<CakeShop.Model.PaymentMethod>
+
+@{
+    Layout = "_Admin";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <div class="col-md-12">
+        <h4>Serach Between Date</h4>
+        <form asp-action="SearchBetweenDate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label" style="font-weight: bold; color: #6b6b6b;">Date from</label>
+                <div class="col-lg-3">
+                    <input for="dateFrom" class="form-control" type="date" name="datefrom" id="datefrom" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" style="font-weight: bold; color: #6b6b6b;">Date to</label>
+                <div class="col-lg-3">
+                    <input for="dateTo" class="form-control" type="date" name="dateto" id="dateto" />
+                </div>
+            </div>
+            <div class="form-group">
+                @*  <input type="submit" value="Search" />*@
+
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </form>
+        <div class="card-block table-border-style">
+            <div class="table-responsive">
+                <table class="table table-hover" id="tableData">
+                    <thead>
+                        <tr>
+                            <th>Cvv</th>
+                            <th>Quntity</th>
+                            <th>Total Price</th>
+                            <th>Status</th>
+                            @* <th>User ID</th>*@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null)
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                   
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cvv)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Amount)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem =>item.Order)
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.User.UserId)
+                                        </td>*@
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cvv)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Order)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cvv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.OrderId)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.VisaId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.VisaId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

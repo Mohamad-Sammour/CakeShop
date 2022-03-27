@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CakeShop.Model.Contatctu>
+
+@{
+    Layout ="_Layout";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Owner @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+               Owner  @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+              Owner  @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message) From Owner
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CakeShop.Model.Aboutu>
+
+@{
+    ViewData["Title"] = "ForCustomer";
+
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+          
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
